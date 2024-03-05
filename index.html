@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGE Utilities Calculation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-5">
+    <div class="flex justify-between items-center mb-4">
+        <img src="src/gradiant-logo-site.jpg" alt="CGE Logo" class="h-20">
+        <div>
+            <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900">Utilities</a>
+            <a href="dimensions.html" class="px-4 py-2 text-gray-700 hover:text-gray-900">Dimensions</a>
+        </div>
+    </div>
+
+    <header class="text-center mb-4">
+        <h1 class="text-xl font-bold">CGE Utilities Calculation</h1>
+    </header>
+
+  <section id="input-section" class="mb-4">
+    <!-- Input fields -->
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label for="feed-tds-cge" class="block text-sm font-medium text-gray-700">Feed TDS to CGE (mg/l)</label>
+        <input type="number" id="feed-tds-cge" class="mt-1 block w-full p-2 bg-yellow-200 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+      <div>
+        <label for="outlet-tds-cge" class="block text-sm font-medium text-gray-700">Outlet TDS from CGE (mg/l)</label>
+        <input type="number" id="outlet-tds-cge" class="mt-1 block w-full p-2 bg-yellow-200 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+      <div>
+        <label for="feed-cge" class="block text-sm font-medium text-gray-700">Feed to CGE (m³/day)</label>
+        <input type="number" id="feed-cge" class="mt-1 block w-full p-2 bg-yellow-200 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+      <div>
+        <label for="hours-operation" class="block text-sm font-medium text-gray-700">Hours of operation (hrs/day)</label>
+        <input type="number" id="hours-operation" class="mt-1 block w-full p-2 bg-yellow-200 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+    </div>
+    <button id="calculate-button" class="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">Calculate</button>
+  </section>
+
+  <section id="output-section" class="mb-4">
+    <!-- Output fields (hidden initially) -->
+    <div class="grid grid-cols-2 gap-4" style="display: none;">
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Concentration Factor</label>
+        <div id="concentration-factor" class="mt-1 p-2 bg-green-200 rounded-md shadow-sm"></div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Concentration Ratio (without Loss)</label>
+        <div id="concentration-ratio" class="mt-1 p-2 bg-green-200 rounded-md shadow-sm"></div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Brine Influent</label>
+        <div id="brine-influent" class="mt-1 p-2 bg-green-200 rounded-md shadow-sm"></div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Brine Effluent</label>
+        <div id="brine-effluent" class="mt-1 p-2 bg-green-200 rounded-md shadow-sm"></div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Water Evaporated (Approx)</label>
+        <div id="water-evaporated" class="mt-1 p-2 bg-green-200 rounded-md shadow-sm"></div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Batch Salinity</label>
+        <div id="batchSalinity" class="mt-1 p-2 bg-green-200 rounded-md shadow-sm"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results-table" class="mb-4" style="display: none;">
+    <!-- Final results table -->
+    <h2 class="text-lg font-bold mb-2">Results</h2>
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Parameter</th>
+          <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value</th>
+          <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Units</th>
+        </tr>
+      </thead>
+      <tbody id="results-tbody" class="bg-white divide-y divide-gray-200">
+        <!-- Rows will be populated by JavaScript -->
+      </tbody>
+    </table>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

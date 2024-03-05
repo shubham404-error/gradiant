@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensions Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .menu-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background-color: #f0f0f0;
+        }
+        .menu-item {
+            padding: 10px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        .menu-item:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-5">
+    <div class="flex justify-between items-center mb-4">
+        <img src="src/gradiant-logo-site.jpg" alt="CGE Logo" class="h-20">
+        <div>
+            <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900">Utilities</a>
+            <a href="dimensions.html" class="px-4 py-2 text-gray-700 hover:text-gray-900">Dimensions</a>
+        </div>
+    </div>
+    
+    <header class="text-center mb-4">
+        <h1 class="text-xl font-bold">CGE Dimensions Calculation</h1>
+    </header>
+
+    <!-- Content for the Dimensions page. Include elements that will display the utilized variables -->
+    <div id="batchSalinityOutput" class="text-center p-5 bg-white shadow rounded-lg">
+        <h2 class="text-lg font-bold mb-2">Batch Salinity Value</h2>
+        <p id="batchSalinityValue" class="text-xl"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const batchSalinity = localStorage.getItem('batchSalinity');
+            document.getElementById('batchSalinityValue').textContent = batchSalinity ? batchSalinity + ' mg/l' : 'Not Available';
+        });
+    </script>
+</body>
+</html>
